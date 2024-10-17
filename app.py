@@ -1,15 +1,3 @@
-#데이터 프레임 가져오기​
-
-import pandas as pd
-
-# Read the dataset
-df = pd.read_csv("InkjetDB_preprocessing.csv")
-
-# Display the dataframe
-st.write(df)
-##################################################################################################################
-
-
 # 챗봇 가져오기
 from openai import OpenAI
 import streamlit as st
@@ -46,17 +34,3 @@ if prompt := st.chat_input("What is up?"):
         )
         response = st.write_stream(stream)
     st.session_state.messages.append({"role": "assistant", "content": response})
-    
-#####################################################################################################################
-
-# 달력창이 뜨는 수정가능한 테이블 삽입
-df = pd.read_csv("avocado.csv")
-df['date'] = df['date'].apply(lambda x: date.fromisoformat(x))
-
-new_df = st.data_editor(df,
-                        column_config={
-                            "date":st.column_config._____________
-                        })
-
-# 메트릭 제작
-st.metric(label="Temperature", value="70 °F", delta="1.2 °F")
